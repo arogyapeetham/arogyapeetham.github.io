@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ārogya Peetham - Integrative Health & Wellness</title>
+    <title>Ārogya Peetham - Holistic Health & Wellness Center</title>
     <style>
         * {
             margin: 0;
@@ -22,7 +22,6 @@
             background-color: #fafafa;
         }
 
-        /* ==================== VARIABLES ==================== */
         :root {
             --primary: #0d5f3f;
             --secondary: #8b5a3c;
@@ -58,7 +57,6 @@
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: 1px;
-            text-transform: uppercase;
             background: linear-gradient(135deg, #fff, var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -173,7 +171,6 @@
             transition: var(--transition);
             border: 2px solid var(--accent);
             cursor: pointer;
-            border: none;
         }
 
         .cta-primary:hover {
@@ -281,8 +278,8 @@
         }
 
         .about-text h2 {
-            font-size: 2.5rem;
             color: var(--primary);
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
             font-weight: 800;
         }
@@ -297,6 +294,7 @@
         .about-image-box {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             height: 400px;
+            width: 100%;
             border-radius: var(--border-radius);
             display: flex;
             align-items: center;
@@ -304,6 +302,15 @@
             color: white;
             font-size: 4rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .about-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* ==================== FOUNDER SECTION ==================== */
@@ -328,22 +335,34 @@
             margin-bottom: 2rem;
         }
 
+        /* PERFECT CIRCULAR PHOTO STYLING */
         .founder-avatar {
             width: 180px;
             height: 180px;
-            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            min-width: 180px;
             border-radius: 50%;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
             flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .founder-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border-radius: 50%;
         }
 
         .founder-info h3 {
-            font-size: 2rem;
             color: var(--primary);
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
             font-weight: 800;
         }
@@ -401,6 +420,7 @@
             border-left: 5px solid var(--primary);
             border-radius: 8px;
             transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
         .program-card:hover {
@@ -476,7 +496,7 @@
         .cta-banner h2 {
             color: var(--primary);
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-weight: 800;
         }
 
@@ -501,6 +521,7 @@
             font-size: 1rem;
             transition: var(--transition);
             border: 2px solid var(--primary);
+            cursor: pointer;
         }
 
         .cta-secondary:hover {
@@ -565,6 +586,7 @@
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding-top: 2rem;
+            margin-top: 2rem;
             text-align: center;
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
@@ -582,60 +604,18 @@
             }
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .service-card {
+        .service-card, .program-card, .country-item {
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        .program-card {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        /* ==================== RESPONSIVE ==================== */
+        /* ==================== RESPONSIVE DESIGN ==================== */
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
             nav ul {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: var(--primary);
-                gap: 1rem;
-                padding: 2rem;
             }
 
-            nav ul.active {
+            .hamburger {
                 display: flex;
-            }
-
-            .navbar {
-                padding: 0 1rem;
             }
 
             .hero h1 {
@@ -653,6 +633,13 @@
             .founder-header {
                 flex-direction: column;
                 text-align: center;
+                gap: 1.5rem;
+            }
+
+            .founder-avatar {
+                width: 140px;
+                height: 140px;
+                min-width: 140px;
             }
 
             .section-header h2 {
@@ -670,6 +657,10 @@
             .about-image-box {
                 height: 300px;
             }
+
+            .services-grid, .programs-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -681,10 +672,6 @@
                 font-size: 1.8rem;
             }
 
-            .services-grid, .programs-grid {
-                grid-template-columns: 1fr;
-            }
-
             .section-header h2 {
                 font-size: 1.6rem;
             }
@@ -693,7 +680,26 @@
                 padding: 0 1rem;
             }
 
+            .founder-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .founder-avatar {
+                width: 120px;
+                height: 120px;
+                min-width: 120px;
+            }
+
+            .countries-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-wrapper {
                 grid-template-columns: 1fr;
             }
         }
@@ -784,7 +790,10 @@
                     <p>Passionate about preventive healthcare, rehabilitation, consciousness, and yoga, we established evidence-based protocols for neurological disease management and founded the Kaivalyam Foundation to promote health and wellness through yoga, oriental philosophy, and research.</p>
                     <p>Our mission is to bridge the profound wisdom of ancient healing traditions with the precision of modern scientific research, making holistic wellness accessible to everyone, everywhere.</p>
                 </div>
-                <div class="about-image-box">🏛️</div>
+                <div class="about-image-box">
+                    <!-- UPLOAD center.jpg TO GITHUB FOR THIS TO SHOW -->
+                    <img src="center.jpg" alt="Ārogya Peetham Wellness Center">
+                </div>
             </div>
         </div>
     </section>
@@ -796,7 +805,10 @@
         </div>
         <div class="founder-wrapper">
             <div class="founder-header">
-                <div class="founder-avatar">🧘‍♂️</div>
+                <div class="founder-avatar">
+                    <!-- UPLOAD founder.jpg TO GITHUB FOR THIS TO SHOW -->
+                    <img src="founder.jpg" alt="Harsh Ranjan Samarpan - Founder">
+                </div>
                 <div class="founder-info">
                     <h3>Harsh Ranjan Samarpan</h3>
                     <div class="founder-title">Founder & Director</div>
@@ -804,7 +816,7 @@
                 </div>
             </div>
             <div class="credentials-box">
-                <strong>Qualifications & Expertise:</strong>
+                <strong>Qualifications & Expertise:</strong><br>
                 Ayurveda Biology • Psychology • Neuroscience • Nutrition • Certified Yoga Instructor • Sanskrit Scholar
             </div>
             <p class="founder-bio">I'm Harsh Ranjan (Samarpan) — an interdisciplinary scholar-practitioner specializing in Ayurveda Biology with parallel studies in Psychology, Yoga, and Sanskrit. My mission is to bridge the profound wisdom of ancient healing traditions with the precision of modern scientific research, making holistic wellness accessible to everyone, everywhere.</p>
@@ -915,7 +927,7 @@
                     <h4>Contact Info</h4>
                     <p>Email: contact@arogya-peetham.com</p>
                     <p>Phone: +91 XXXXX XXXXX</p>
-                    <p>Location: Multiple Global Centers</p>
+                    <p>Location: India, USA, Singapore, Netherlands, UK, Canada, Australia</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -925,24 +937,8 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when link is clicked
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -956,6 +952,23 @@
             });
         });
 
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+
+        // Close menu when link clicked
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu) navMenu.style.display = 'none';
+            });
+        });
+
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
@@ -966,7 +979,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
                 }
             });
         }, observerOptions);
@@ -981,15 +993,15 @@
             let current = '';
             document.querySelectorAll('section').forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
+                if (window.pageYOffset >= sectionTop - 200) {
                     current = section.getAttribute('id');
                 }
             });
 
             document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
+                link.style.borderBottom = 'none';
                 if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
+                    link.style.borderBottom = '2px solid var(--accent)';
                 }
             });
         });
